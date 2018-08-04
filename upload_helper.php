@@ -22,5 +22,8 @@
         // return print_r($files);
         // move_uploaded_file($tmp_name, $path_destination.$tmp_name['name']);
         // return move_uploaded_file($files['tmp_name'], $path_destination.$files['name']);
-        
+
+        $fi = new FilesystemIterator($path_destination, FilesystemIterator::SKIP_DOTS);
+		printf("tes favicon% Files", iterator_count($fi));
+
 	}
