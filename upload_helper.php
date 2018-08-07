@@ -1,3 +1,4 @@
+<?php
 /*
 MIT License
 
@@ -87,3 +88,4 @@ function img_resize($files,$maxDim,$path_destination){
 	};
 
 }
+?>
