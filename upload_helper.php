@@ -31,7 +31,7 @@
         switch ($mime) {
             case 'image/jpeg':
                 $image_create_func  = 'imagecreatefromjpeg';
-                $image_create     = 'imagecreate';
+                $image_create     = 'imagecreatetruecolor';
                 $image_save_func  = 'imagejpeg';
                 $new_image_ext    = 'jpg';
                 break;
