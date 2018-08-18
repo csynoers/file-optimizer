@@ -77,15 +77,24 @@
             imagedestroy( $dst );
         }
 
-        $file_name        = $files['name'];
-      $temp           = explode( ".", $file_name );
-      $newfilename      = current( $temp ).'_'.round(microtime(true)) . '.' . end( $temp );
-      
-      if ( move_uploaded_file( $tmp_name , $path_destination. $newfilename ) ) {
-        return $newfilename;
-      }else{
-        return 'error';
-      };
+        $name = $files['name'];
+        $rawBaseName = pathinfo( $name, PATHINFO_FILENAME );
+        $original_name = $rawBaseName;
+        $extension = pathinfo( $name, PATHINFO_EXTENSION );
+
+        $i = 1;
+        while( file_exists($path_destination.$rawBaseName.".".$extension ))
+        {           
+            $rawBaseName = ( string )$original_name.$i;
+            $name = $rawBaseName.".".$extension;
+            $i++;
+        }
+              
+        if ( move_uploaded_file( $tmp_name , $path_destination. $name ) ) {
+            return $name;
+        }else{
+            return 'error';
+        }
 
     }
 ?>
