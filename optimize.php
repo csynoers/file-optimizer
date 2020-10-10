@@ -1,5 +1,4 @@
 <?php
-    ini_set( 'max_file_uploads' , 50 );
     require 'upload_helper.php';
 
     // File upload configuration 
@@ -31,4 +30,4 @@
         return $filesMod;
     }
 
-    // header("location:index.php?q=1");
+    header("location:index.php?q=1");
